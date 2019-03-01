@@ -1,0 +1,12 @@
+[in-city]
+exten => 516080,1,Answer() 
+exten => 516080,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 516080,n,Dial(5360 60,tM(recording,${CALLERID(num)},${EXTEN})) 
+exten => 516080,n,Goto(end) 
+exten => 516080,n(blacklist),Playback(/var/lib/asterisk/sounds/ru/tt-weasels) 
+exten => 516080,n(end),HangUp()
+ 
+[ext-group]
+exten => 600,1,Dial(SIP/5366, 20,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,Dial(5360 ,60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,HangUp()

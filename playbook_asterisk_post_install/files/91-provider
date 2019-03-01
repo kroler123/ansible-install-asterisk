@@ -1,0 +1,17 @@
+[R-telekom3170005]
+disallow=all
+username=73433170005
+type=friend
+secret=G79FW2F4
+qualify=yes
+insecure=port,invite
+host=voip.domru.ru
+fromuser=73433170005
+fromdomain=voip.domru.ru
+dtmfmode=rfc2833
+canreinvite=no
+allow=g729
+allow=alaw
+context=in-city
+ 
+

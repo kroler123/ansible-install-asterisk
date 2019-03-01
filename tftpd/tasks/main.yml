@@ -1,0 +1,53 @@
+---
+# tasks file for tftpd
+- name: Install tftp and xinetd
+  yum:
+    state: present
+    name: "{{ item }}"
+  loop:
+    - tftp
+    - tftp-server
+    - xinetd
+
+- name: Reconfigure /etc/xinetd.d/tftp
+  lineinfile: dest=/etc/xinetd.d/tftp
+              regexp='server_args'
+              insertafter='= /usr/sbin/in.tftpd'
+              line='        server_args             = -c -p -u tftpd -U 111 -s /var/lib/tftpboot'
+
+- name: Reconfigure /etc/xinetd.d/tftp
+  lineinfile: dest=/etc/xinetd.d/tftp
+              regexp='disable'
+              insertafter='/var/lib/tftpboot'
+              line='        disable                 = no'
+
+- name: Create group tftpd
+  group:
+    name: tftpd
+    state: present
+
+- name: Create tftp-user
+  user:
+    name: tftpd
+    group: tftpd
+    create_home: no
+    shell: /sbin/nologin
+    append: yes
+    state: present
+
+- file:
+    path: /var/lib/tftpboot
+    owner: tftpd
+    group: tftpd
+    mode: 0777
+    state: directory
+
+- name: Restart and Enable service
+  service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  loop:
+    - tftp
+    - xinetd
+

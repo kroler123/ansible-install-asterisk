@@ -1,0 +1,7 @@
+[in-city]
+exten => salon131,1,Answer() 
+exten => salon131,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => salon131,n,Dial(6780 60,tM(recording,${CALLERID(num)},${EXTEN})) 
+exten => salon131,n,Goto(end) 
+exten => salon131,n(blacklist),Playback(/var/lib/asterisk/sounds/ru/tt-weasels) 
+exten => salon131,n(end),HangUp()

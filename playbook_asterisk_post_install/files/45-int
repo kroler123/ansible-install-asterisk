@@ -1,0 +1,4 @@
+[in-city]
+exten => 405476,1,Answer() 
+exten => 405476,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 405476,n,Goto(ext-group,600,1)

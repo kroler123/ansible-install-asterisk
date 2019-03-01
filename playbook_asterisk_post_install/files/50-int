@@ -1,0 +1,18 @@
+[in-city]
+exten => 538128,1,Answer() 
+exten => 538128,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 538128,n,Dial(5901 60,tM(recording,${CALLERID(num)},${EXTEN})) 
+exten => 538128,n,Goto(end) 
+exten => 538128,n(blacklist),Playback(/var/lib/asterisk/sounds/ru/tt-weasels) 
+exten => 538128,n(end),HangUp()
+exten => 538138,1,Answer() 
+exten => 538138,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 538138,n,Dial(5901 60,tM(recording,${CALLERID(num)},${EXTEN})) 
+exten => 538138,n,Goto(end) 
+exten => 538138,n(blacklist),Playback(/var/lib/asterisk/sounds/ru/tt-weasels) 
+exten => 538138,n(end),HangUp()
+ 
+[ext-group]
+exten => 600,1,Dial(SIP/5901&SIP/5902&SIP/5900&SIP/5904&SIP/5905&SIP/5906&SIP/5907&SIP/5908&SIP/5909&SIP/5911&SIP/5912, 20,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,Dial(5901 ,60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,HangUp()

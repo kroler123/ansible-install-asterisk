@@ -1,0 +1,85 @@
+---
+# tasks file for playbook_asterisk_post_install
+#- name: Mkdir template
+#  file:
+#    state: directory
+#    path: "/etc/asterisk/template/{{ item }}"
+#  loop:
+#    - exten
+#    - sip
+
+#- name: Delete sip.conf
+#  file:
+#    path: "{{ item }}"
+#    state: absent
+#  ignore_errors: true
+#  loop:
+#    - "{{ folder_asterisk }}/sip.conf"
+#    - "{{ folder_asterisk }}/cdr.conf"
+#    - "{{ folder_asterisk }}/manager.conf"
+#    - "{{ folder_asterisk }}/cdr_mysql.conf"
+#    - "{{ folder_asterisk }}/ari.conf"
+#    - "{{ folder_asterisk }}/modules.conf"
+#    - "{{ folder_asterisk }}/cel_custom.conf"
+#    - "{{ folder_asterisk }}/extensions.conf"
+#    - "{{ folder_asterisk }}/template/sip/sip_template.conf"
+#    - "{{ folder_asterisk }}/template/sip/sip_variables.conf"
+#    - "{{ folder_asterisk }}/template/sip/sip_user.conf"
+#    - "{{ folder_asterisk }}/template/exten/exten_macro.conf"
+#    - "{{ folder_asterisk }}/template/exten/other.conf"
+#    - "{{ folder_asterisk }}/template/exten/in.conf"
+#    - "{{ folder_asterisk }}/template/exten/out.conf"
+#    - "{{ folder_asterisk }}/template/exten/local.conf"
+
+#- name: Copy file general in directory {{ folder_asterisk }}
+#  copy:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    owner: asterisk
+#    group: asterisk
+#    mode: 0644
+#  ignore_errors: true
+#  loop:
+#    - { src: 'sip.conf', dest: '/etc/asterisk/sip.conf' }
+#    - { src: 'cdr.conf', dest: '/etc/asterisk/cdr.conf' }
+#    - { src: 'cdr_mysql.conf', dest: '/etc/asterisk/cdr_mysql.conf' }
+#    - { src: 'ari.conf', dest: '/etc/asterisk/ari.conf' }
+#    - { src: 'modules.conf', dest: '/etc/asterisk/modules.conf' }
+#    - { src: 'cel_custom.conf', dest: '/etc/asterisk/cel_custom.conf' }
+#    - { src: 'extensions.conf', dest: '/etc/asterisk/extensions.conf' }
+#    - { src: 'sip_template.conf', dest: '/etc/asterisk/template/sip/sip_template.conf' }
+#    - { src: 'exten_macro.conf', dest: '/etc/asterisk/template/exten/exten_macro.conf' }
+#    - { src: 'other.conf', dest: '/etc/asterisk/template/exten/other.conf' }
+#    - { src: 'dundi.conf', dest: '/etc/asterisk/template/sip/dundi.conf' }
+
+#- name: Copy file local for asterisk in directory {{ folder_asterisk }}
+#  copy:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    owner: asterisk
+#    group: asterisk
+#    mode: 0644
+#  ignore_errors: true
+#  loop:
+#    - { src: '{{ asterisk_int }}', dest: '/etc/asterisk/template/exten/in.conf' }
+#    - { src: '{{ asterisk_out }}', dest: '/etc/asterisk/template/exten/out.conf' }
+#    - { src: '{{ asterisk_local }}', dest: '/etc/asterisk/template/exten/local.conf' }
+#    - { src: '{{ asterisk_user }}', dest: '/etc/asterisk/template/sip/user.conf' }
+#    - { src: '{{ asterisk_variables }}', dest: '/etc/asterisk/template/sip/sip_variables.conf' }
+#    - { src: '{{ asterisk_provider }}', dest: '/etc/asterisk/sip_provider.conf' }
+#    - { src: '{{ asterisk_registration }}', dest: '/etc/asterisk/sip_regstring.conf' }
+#    - { src: '{{ asterisk_general }}', dest: '/etc/asterisk/sip_general.conf' }
+
+#- set_fact: network="{{ ansible_ens32['ipv4']['network'] }}"
+
+#- name: Copy file manager.conf in directory {{ folder_asterisk }}
+#  template:
+#    src: manager.j2
+#    dest: "{{ folder_asterisk }}/manager.conf"
+#    mode: 0644
+#    owner: asterisk
+#    group: asterisk
+
+- name: Add "register=" in beginning of line
+  shell: "sed -i -e ' s|^|register=|' /etc/asterisk/sip_regstring.conf"
+

@@ -1,0 +1,15 @@
+[2452440]
+disallow=all
+type=peer
+qualify=3000
+nat=force_rport,comedia
+externip=176.196.230.182
+host=212.75.211.106
+dtmfmode=rfc2833
+directmedia=no
+allow=alaw
+allow=ulaw
+;insecure=invite,port
+context=in-city
+ 
+

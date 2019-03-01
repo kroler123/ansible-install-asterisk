@@ -1,0 +1,21 @@
+[out-city] 
+include => conf_user_add 
+include => local 
+include => dundi 
+ignorepat => 9 
+exten => _9.,1,NoOp(Городской вызов на ${EXTEN})
+ same =>     n,Gotoif([${CALLERID(num)} = "92XXXXXX"]?1:2)
+ same =>     n(1),Dial(SIP/${4,7347${EXTEN:1},)}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(2),Gotoif([${CALLERID(num)} = "92XXXXXX"]?3:4)
+ same =>     n(3),Dial(SIP/${6,7347${EXTEN:1},)}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(4),Gotoif([${CALLERID(num)} = "9XXXXXXX"]?5:6)
+ same =>     n(5),Dial(SIP/${4}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(6),Gotoif([${CALLERID(num)} = "9XXXXXXX"]?7:8)
+ same =>     n(7),Dial(SIP/${6}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(8),Gotoif([${CALLERID(num)} = "9[78]."]?9:10)
+ same =>     n(9),Dial(SIP/${4,7${EXTEN:2},)}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(10),Gotoif([${CALLERID(num)} = "9[78]."]?11:12)
+ same =>     n(11),Dial(SIP/${6,7${EXTEN:2},)}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(12),Gotoif([${CALLERID(num)} = "310X"]?13:14)
+ same =>     n(13),Dial(SIP/${5}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(14),HangUp()

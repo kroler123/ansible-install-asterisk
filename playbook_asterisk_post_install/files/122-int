@@ -1,0 +1,11 @@
+[in-city]
+exten => salon122,1,Answer() 
+exten => salon122,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => salon122,n,Dial(6751 60,tM(recording,${CALLERID(num)},${EXTEN})) 
+exten => salon122,n,Goto(end) 
+exten => salon122,n(blacklist),Playback(/var/lib/asterisk/sounds/ru/tt-weasels) 
+exten => salon122,n(end),HangUp()
+ 
+[ext-group]
+exten => 600,1,Dial(SIP/6751&SIP/6752&SIP/6754&SIP/6750, 60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,HangUp()

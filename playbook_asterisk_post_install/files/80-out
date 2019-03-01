@@ -1,0 +1,13 @@
+[out-city] 
+include => conf_user_add 
+include => local 
+include => dundi 
+ignorepat => 9 
+exten => _9.,1,NoOp(Городской вызов на ${EXTEN})
+ same =>     n,Gotoif([${CALLERID(num)} = "5087"]?1:2)
+ same =>     n(1),Dial(SIP/${4}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(2),Gotoif([${CALLERID(num)} = "5089"]?3:4)
+ same =>     n(3),Dial(SIP/${4}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(4),Gotoif([${CALLERID(num)} = "31XX"]?5:6)
+ same =>     n(5),Dial(SIP/${5}/${EXTEN:1},60,TM(recording,${CALLERID(num)},${EXTEN}))
+ same =>     n(6),HangUp()

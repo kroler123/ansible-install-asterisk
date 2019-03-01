@@ -1,0 +1,3 @@
+---
+# vars file for playbook_asterisk_post_install
+folder_asterisk: /etc/asterisk

@@ -1,0 +1,21 @@
+[in-city]
+exten => 206835,1,Answer() 
+exten => 206835,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 206835,n,Goto(ext-group,601,1)
+exten => 206895,1,Answer() 
+exten => 206895,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 206895,n,Goto(ext-group,600,1)
+exten => rbt17,1,Answer() 
+exten => rbt17,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => rbt17,n,Goto(ext-group,601,1)
+exten => rbt172,1,Answer() 
+exten => rbt172,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => rbt172,n,Goto(ext-group,600,1)
+ 
+[ext-group]
+exten => 600,1,Dial(SIP/5460&SIP/5461&SIP/5462&SIP/5463&SIP/5465&SIP/5466&SIP/5467&SIP/5469&SIP/5470&SIP/5471&SIP/5473, 20,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,Dial(5460 ,60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,HangUp()
+exten => 601,1,Dial(SIP/5464&SIP/5468, 20,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 601,n,Dial(5464 ,60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 601,n,HangUp()

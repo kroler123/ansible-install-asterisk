@@ -1,0 +1,5 @@
+---
+# tasks file for timezones
+- name: set timezone         
+  timezone:
+    name: "{{ ansible_timezone }}"

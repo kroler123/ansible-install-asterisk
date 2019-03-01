@@ -1,0 +1,7 @@
+[in-city]
+exten => 540124,1,Answer() 
+exten => 540124,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 540124,n,Dial(5699 60,tM(recording,${CALLERID(num)},${EXTEN})) 
+exten => 540124,n,Goto(end) 
+exten => 540124,n(blacklist),Playback(/var/lib/asterisk/sounds/ru/tt-weasels) 
+exten => 540124,n(end),HangUp()

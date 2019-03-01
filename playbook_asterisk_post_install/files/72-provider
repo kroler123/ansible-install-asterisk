@@ -1,0 +1,15 @@
+[3200445]
+disallow=all
+username=3200445
+type=friend
+qualify=yes
+nat=force_rport,comedia
+insecure=port
+host=212.75.211.106
+fromuser=3200445
+fromdomain=212.75.211.106
+externip=176.197.54.174
+allow=alaw
+context=in-city
+ 
+

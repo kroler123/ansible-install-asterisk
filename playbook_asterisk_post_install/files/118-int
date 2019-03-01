@@ -1,0 +1,10 @@
+[in-city]
+exten => salon118,1,Answer() 
+exten => salon118,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => salon118,n,Goto(ext-group,600,1)
+ 
+[ext-group]
+exten => 600,1,Dial(SIP/5634, 20,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,Goto(601,1)
+exten => 601,1,Dial(SIP/5637, 60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 601,n,HangUp()

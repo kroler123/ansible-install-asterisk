@@ -1,0 +1,15 @@
+[2452524]
+disallow=all
+type=friend
+username=2452524
+nat=force_rport,comedia
+insecure=port
+qualify=yes
+fromuser=2452524
+fromdomain=212.75.211.106
+host=212.75.211.106
+allow=alaw
+externip=212.75.208.142
+context=in-city
+ 
+

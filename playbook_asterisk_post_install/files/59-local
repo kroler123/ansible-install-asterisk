@@ -1,0 +1,51 @@
+[local]
+exten => 5120,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5120,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5121,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5121,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5122,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5122,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5123,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5123,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5124,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5124,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5125,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5125,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5126,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5126,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5127,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5127,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5128,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5128,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 
+exten => 5129,1,NoOp(Локальный вызов на ${exten}) 
+ same =>      n,Dial(SIP/5129,45,TtM(recording,${CALLRID(num),${EXTEN})) 
+ same =>      n,Hangup() 
+ 
+ 

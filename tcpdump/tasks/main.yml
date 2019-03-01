@@ -1,0 +1,24 @@
+---
+# tasks file for tcpdump
+#- name: Install tcpdump
+#  yum:
+#    name: tcpdump
+#    state: present
+
+#- name: Copy script dump.sh
+#  copy: 
+#    src: dump.sh 
+#    dest: /opt/dump.sh
+#    mode: 0777
+
+#- name: Add alias dump.sh
+#  lineinfile: dest=/root/.bashrc
+#              regexp='mv -i'
+#              insertafter='mv -i'
+#              line="alias dump='/opt/dump.sh'"
+- name: Add alias dump.sh
+  lineinfile: dest=/root/.bashrc
+              regexp='Source'
+              insertafter='Source'
+              line='if [ -f /etc/bashrc ]; then'
+

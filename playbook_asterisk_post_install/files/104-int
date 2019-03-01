@@ -1,0 +1,9 @@
+[in-city]
+exten => 2452440,1,Answer() 
+exten => 2452440,n,GotoIf($[${BLACKLIST()}=1]?blacklist) 
+exten => 2452440,n,Goto(ext-group,600,1)
+ 
+[ext-group]
+exten => 600,1,Dial(SIP/6500&SIP/6501&SIP/6502&SIP/6503&SIP/6504&SIP/6505&SIP/6506&SIP/6507&SIP/6508&SIP/6509&SIP/6510&SIP/6511&SIP/6512&SIP/6513&SIP/6514&SIP/6515&SIP/6516&SIP/6517&SIP/6518&SIP/6519, 60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,Dial(6500 ,60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,HangUp()

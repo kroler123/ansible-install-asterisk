@@ -1,0 +1,16 @@
+[ToUfanet]
+disallow=all
+type=friend
+username=3478370231
+secret=oD7x9PVON5
+qualify=yes
+nat=force_rport,comedia
+insecure=port,invite
+dtmfmode=rfc2833
+canreinvite=no
+host=10.1.226.28
+fromuser=3478370231
+allow=alaw
+context=in-city
+ 
+

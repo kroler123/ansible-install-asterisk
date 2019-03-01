@@ -1,0 +1,17 @@
+[R-telekom260012]
+disallow=all
+username=73522260012
+type=friend
+secret=E4W1URR8
+qualify=yes
+insecure=port,invite
+host=voip.domru.ru
+fromuser=73522260012
+fromdomain=voip.domru.ru
+dtmfmode=rfc2833
+canreinvite=no
+allow=g729
+allow=alaw
+context=in-city
+ 
+

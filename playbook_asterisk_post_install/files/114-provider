@@ -1,0 +1,14 @@
+[Salon114]
+disallow=all
+type=peer
+qualify=3000
+host=10.66.251.97
+fromdomain=10.66.161.140
+dtmfmode=rfc2833
+allow=g711,alaw
+directmedia=no
+insecure=invite,port
+canreinvite=no
+context=in-city
+ 
+

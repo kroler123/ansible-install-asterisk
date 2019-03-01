@@ -1,0 +1,15 @@
+[ 5649239]
+disallow=all
+type=friend
+username=5649239
+nat=force_rport,comedia
+insecure=port
+qualify=yes
+fromuser=5649239
+fromdomain=212.75.211.106
+host=212.75.211.106
+allow=alaw
+externip=46.180.137.250
+context=in-city
+ 
+

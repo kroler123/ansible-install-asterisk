@@ -1,0 +1,16 @@
+[65064]
+disallow=all
+username=65064
+type=friend
+secret=a6Y8LfRc
+qualify=yes
+insecure=port,invite
+host=89.189.150.52
+fromuser=65064
+fromdomain=89.189.150.52
+dtmfmode=rfc2833
+;canreinvite=no
+allow=alaw
+context=in-city
+ 
+

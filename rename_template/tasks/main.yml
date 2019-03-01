@@ -1,0 +1,4 @@
+---
+# tasks file for rename_template
+- name: rename template
+  command: mv /etc/asterisk/template/sip/sip_template.conf /etc/asterisk/template/sip/0template.conf

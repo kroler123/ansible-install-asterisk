@@ -1,0 +1,15 @@
+[57996]
+disallow=all
+username=57996
+type=friend
+secret=58u8qzLa
+port=5060
+nat=no
+insecure=port,invite
+host=10.0.0.2
+fromuser=57996
+dtmfmode=rfc2833
+allow=alaw
+context=in-city
+ 
+

@@ -1,0 +1,16 @@
+[385846]
+disallow=all
+username=385846
+type=friend
+secret=Qm25Mcp7
+qualify=yes
+insecure=port,invite
+host=rtu.slv.ufanet.ru
+fromuser=385846
+fromdomain=voip.domru.ru
+dtmfmode=rfc2833
+canreinvite=no
+allow=alaw
+context=in-city
+ 
+

@@ -1,0 +1,18 @@
+---
+# tasks file for create_missing_files
+- file:
+    force: no
+    path: "{{ item }}"
+    state: touch
+    owner: asterisk
+    group: asterisk
+    mode: 0644
+  loop:
+    - '/etc/asterisk/template/exten/in.conf' 
+    - '/etc/asterisk/template/exten/out.conf' 
+    - '/etc/asterisk/template/exten/local.conf'
+    - '/etc/asterisk/template/sip/user.conf' 
+    - '/etc/asterisk/template/sip/sip_variables.conf' 
+    - '/etc/asterisk/sip_provider.conf' 
+    - '/etc/asterisk/sip_regstring.conf' 
+

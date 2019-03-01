@@ -1,0 +1,14 @@
+---
+# tasks file for cdrviewer
+- file:
+    path: /etc/httpd/conf.d/asterisk.conf
+    state: absent
+
+- name: Copy file asterisk.conf
+  copy: 
+    src: asterisk.conf
+    dest: /etc/httpd/conf.d/asterisk.conf
+    mode: 0644
+
+- name: htpasswd
+  shell: "htpasswd -cb /var/www/Asterisk-CDR-Viewer-Mod/.htpasswd admin yjjnhjgbk"

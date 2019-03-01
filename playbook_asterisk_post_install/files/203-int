@@ -1,0 +1,6 @@
+[in-city]
+ 
+[ext-group]
+exten => 600,1,Dial(SIP/6320&SIP/6321&SIP/6322&SIP/6323&SIP/6324&SIP/6325, 20,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,Dial(6320 ,60,tM(recording,${CALLERID(num)},${EXTEN}))
+exten => 600,n,HangUp()

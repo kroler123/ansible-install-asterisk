@@ -1,0 +1,17 @@
+[343620]
+disallow=all
+qualify=yes
+type=friend
+fromuser=343620
+fromdomain=83.146.120.105
+canreinvite=no
+secret=7W3dCo9sMI
+username=343620
+insecure=port,invite
+host=83.146.120.105
+allow=alaw
+nat=force_rport,comedia
+externip=83.146.113.10
+context=in-city
+ 
+

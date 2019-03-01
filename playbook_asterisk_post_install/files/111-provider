@@ -1,0 +1,17 @@
+[salon111]
+disallow=all
+type=friend
+username=salon111
+secret=yjjnhjgbk
+host=886962.20.rt.ru
+fromuser=salon111
+fromdomain=886962.20.rt.ru
+dtmfmode=rfc2833
+qualify=300
+canreinvite=no
+insecure=invite,port
+allow=alaw
+allow=ulaw
+context=in-city
+ 
+
